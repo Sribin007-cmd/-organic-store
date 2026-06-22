@@ -2,6 +2,18 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Order
 from cart.models import CartItem
+from django.shortcuts import render, redirect
+
+def payment(request):
+
+    if request.method == 'POST':
+        return redirect('success')
+
+    return render(request, 'orders/payment.html')
+
+
+def success(request):
+    return render(request, 'orders/success.html')
 
 
 @login_required
@@ -9,7 +21,18 @@ def checkout(request):
 
     items = CartItem.objects.filter(user=request.user)
 
+    # Prevent checkout if cart is empty
+    if not items.exists():
+        return render(
+            request,
+            'cart/empty_cart.html'
+        )
+
     total = 0
+
+    for item in items:
+        total += item.product.price * item.quantity
+    
 
     for item in items:
         total += item.product.price * item.quantity
