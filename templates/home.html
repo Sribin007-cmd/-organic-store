@@ -1,6 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,127 +13,272 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    overflow:hidden;
-    background:linear-gradient(135deg,#56ab2f,#a8e063);
+overflow-x:hidden;
 }
+
+/* HERO */
 
 .hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    position:relative;
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("{% static 'images/hero.jpg' %}");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+position:relative;
+
 }
 
+/* CONTENT */
+
 .hero-content{
-    z-index:10;
+
+color:white;
+
+z-index:2;
+
+animation:fadeIn 2s;
+
+padding:20px;
+
 }
 
 .hero h1{
-    font-size:80px;
-    font-weight:bold;
-    text-shadow:2px 2px 10px rgba(0,0,0,0.2);
+
+font-size:70px;
+
+font-weight:bold;
+
+text-shadow:3px 3px 12px rgba(0,0,0,.6);
+
 }
 
 .hero p{
-    font-size:28px;
-    margin-top:20px;
+
+font-size:28px;
+
+margin-top:20px;
+
+text-shadow:2px 2px 10px rgba(0,0,0,.6);
+
+}
+
+/* BUTTONS */
+
+.btn-custom{
+
+padding:14px 40px;
+
+font-size:20px;
+
+border-radius:40px;
+
+margin:15px;
+
+transition:.4s;
+
+font-weight:bold;
+
+}
+
+.btn-custom:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 10px 25px rgba(255,255,255,.4);
+
 }
 
 .shop-btn{
-    transition:.4s;
+
+background:#28a745;
+
+color:white;
+
+border:none;
+
 }
 
 .shop-btn:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px white;
+
+background:#218838;
+
+color:white;
+
+}
+
+.login-btn{
+
+background:white;
+
+color:#198754;
+
 }
 
 .login-btn:hover{
-    transform:scale(1.1);
+
+background:#f8f9fa;
+
+color:#198754;
+
 }
 
-.fruit{
-    position:absolute;
-    font-size:70px;
-    animation:float 6s ease-in-out infinite;
+/* FLOATING ICONS */
+
+.float{
+
+position:absolute;
+
+font-size:55px;
+
+animation:float 6s ease-in-out infinite;
+
+opacity:.9;
+
 }
 
-.fruit1{
-    top:8%;
-    left:8%;
+.f1{
+
+top:10%;
+
+left:8%;
+
 }
 
-.fruit2{
-    top:15%;
-    right:10%;
-    animation-delay:1s;
+.f2{
+
+top:18%;
+
+right:8%;
+
+animation-delay:1s;
+
 }
 
-.fruit3{
-    bottom:20%;
-    left:10%;
-    animation-delay:2s;
+.f3{
+
+bottom:18%;
+
+left:10%;
+
+animation-delay:2s;
+
 }
 
-.fruit4{
-    bottom:10%;
-    right:15%;
-    animation-delay:3s;
+.f4{
+
+bottom:10%;
+
+right:12%;
+
+animation-delay:3s;
+
 }
 
-.fruit5{
-    top:45%;
-    left:5%;
-    animation-delay:4s;
+.f5{
+
+top:45%;
+
+left:4%;
+
+animation-delay:4s;
+
 }
 
-.fruit6{
-    top:50%;
-    right:5%;
-    animation-delay:5s;
+.f6{
+
+top:50%;
+
+right:5%;
+
+animation-delay:5s;
+
 }
 
 @keyframes float{
-    0%{
-        transform:translateY(0px) rotate(0deg);
-    }
 
-    50%{
-        transform:translateY(-30px) rotate(10deg);
-    }
-
-    100%{
-        transform:translateY(0px) rotate(0deg);
-    }
+0%{
+transform:translateY(0px) rotate(0deg);
 }
 
-.glow{
-    position:absolute;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.15);
-    filter:blur(60px);
+50%{
+transform:translateY(-25px) rotate(8deg);
 }
 
-.glow1{
-    top:-50px;
-    left:-50px;
+100%{
+transform:translateY(0px) rotate(0deg);
 }
 
-.glow2{
-    bottom:-50px;
-    right:-50px;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+}
+
+.btn-custom{
+
+display:block;
+
+width:220px;
+
+margin:15px auto;
+
+}
+
+.float{
+
+font-size:35px;
+
+}
+
 }
 
 </style>
@@ -142,32 +289,37 @@ body{
 
 <div class="hero">
 
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-
-<div class="fruit fruit1">🍎</div>
-<div class="fruit fruit2">🥕</div>
-<div class="fruit fruit3">🍊</div>
-<div class="fruit fruit4">🥬</div>
-<div class="fruit fruit5">🍅</div>
-<div class="fruit fruit6">🥒</div>
+<div class="float f1">🍎</div>
+<div class="float f2">🥕</div>
+<div class="float f3">🍇</div>
+<div class="float f4">🥬</div>
+<div class="float f5">🥒</div>
+<div class="float f6">🍅</div>
 
 <div class="hero-content">
 
-<h1>🌱 Organic Fresh Market</h1>
+<h1>Organic Fresh Market</h1>
 
 <p>
-Fresh Fruits & Vegetables Delivered To Your Doorstep
+
+Fresh Organic Fruits & Vegetables Delivered To Your Doorstep
+
 </p>
 
-<br><br>
+<br>
 
-<a href="/products/" class="btn btn-light btn-lg shop-btn">
+<a href="{% url 'product_list' %}"
+class="btn btn-custom shop-btn">
+
 🛒 Shop Now
+
 </a>
 
-<a href="/accounts/login/" class="btn btn-dark btn-lg login-btn">
+<a href="{% url 'login' %}"
+class="btn btn-custom login-btn">
+
 🔐 Login
+
 </a>
 
 </div>
