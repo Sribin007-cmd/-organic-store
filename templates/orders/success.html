@@ -5,254 +5,131 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Order Placed Successfully</title>
+<title>Order Successful</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
 body{
-
-background:linear-gradient(135deg,#0f9b0f,#38ef7d);
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-overflow:hidden;
-
+    background:linear-gradient(135deg,#e8fff1,#ffffff);
+    font-family:'Segoe UI',sans-serif;
 }
 
-.success-card{
+.success-box{
 
-width:90%;
-
-max-width:750px;
-
+max-width:700px;
+margin:70px auto;
 background:white;
-
 padding:50px;
-
-border-radius:30px;
-
+border-radius:25px;
 text-align:center;
-
-box-shadow:0 20px 45px rgba(0,0,0,.25);
-
-position:relative;
-
-animation:popup .8s;
-
-z-index:2;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
 
 }
 
-@keyframes popup{
+.tick{
 
-from{
-
-opacity:0;
-
-transform:scale(.8);
-
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-.check{
-
-width:140px;
-
-height:140px;
-
-background:#28a745;
-
-margin:auto;
-
+width:120px;
+height:120px;
+background:#198754;
 border-radius:50%;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
-font-size:75px;
-
+margin:auto;
+font-size:60px;
 color:white;
-
-animation:bounce 1s infinite alternate;
-
-}
-
-@keyframes bounce{
-
-from{
-
-transform:translateY(0);
+animation:pop .8s;
 
 }
 
-to{
+@keyframes pop{
 
-transform:translateY(-10px);
+0%{
+transform:scale(.2);
+opacity:0;
+}
 
+100%{
+transform:scale(1);
+opacity:1;
 }
 
 }
 
 h1{
 
+font-size:40px;
+color:#198754;
+font-weight:bold;
 margin-top:25px;
 
-font-size:42px;
+}
 
-font-weight:bold;
+.message{
+
+font-size:18px;
+color:#666;
+margin-top:15px;
+
+}
+
+.order-card{
+
+background:#f8fff8;
+border-radius:15px;
+padding:25px;
+margin-top:35px;
+text-align:left;
+
+}
+
+.order-card h4{
 
 color:#198754;
 
 }
 
-.sub{
+.order-card p{
 
+margin-bottom:10px;
+
+}
+
+.btn-custom{
+
+width:100%;
+height:55px;
 font-size:20px;
+border-radius:12px;
+margin-top:20px;
 
+}
+
+.rating{
+
+font-size:35px;
+cursor:pointer;
+
+}
+
+.rating span{
+
+transition:.3s;
+
+}
+
+.rating span:hover{
+
+transform:scale(1.3);
+
+}
+
+footer{
+
+margin-top:40px;
 color:#666;
-
-margin-top:15px;
-
-}
-
-.details{
-
-margin-top:35px;
-
-background:#f8f9fa;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:left;
-
-}
-
-.details p{
-
-font-size:18px;
-
-margin-bottom:12px;
-
-}
-
-.buttons{
-
-margin-top:35px;
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-.btn{
-
-padding:14px 35px;
-
-border-radius:50px;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-.float{
-
-position:absolute;
-
-font-size:55px;
-
-opacity:.18;
-
-animation:fall 10s linear infinite;
-
-}
-
-.f1{
-
-left:5%;
-
-top:-60px;
-
-}
-
-.f2{
-
-left:30%;
-
-top:-120px;
-
-animation-delay:2s;
-
-}
-
-.f3{
-
-left:60%;
-
-top:-90px;
-
-animation-delay:4s;
-
-}
-
-.f4{
-
-left:85%;
-
-top:-110px;
-
-animation-delay:6s;
-
-}
-
-@keyframes fall{
-
-0%{
-
-transform:translateY(0) rotate(0deg);
-
-}
-
-100%{
-
-transform:translateY(120vh) rotate(360deg);
-
-}
 
 }
 
@@ -262,16 +139,11 @@ transform:translateY(120vh) rotate(360deg);
 
 <body>
 
-<div class="float f1">🍎</div>
-<div class="float f2">🥕</div>
-<div class="float f3">🍇</div>
-<div class="float f4">🥬</div>
+<div class="success-box">
 
-<div class="success-card">
+<div class="tick">
 
-<div class="check">
-
-✔
+✓
 
 </div>
 
@@ -281,80 +153,123 @@ Order Placed Successfully!
 
 </h1>
 
-<p class="sub">
+<p class="message">
 
-🎉 Thank you for shopping with
-<strong>Organic Fresh Market</strong>
+Thank you for shopping with <b>Organic Fresh Market</b>.
 
-</p>
-
-<div class="details">
-
-<p>
-
-🆔 <strong>Order ID:</strong>
-
-OFM{{ request.user.id }}{{ request.user.id }}2026
+Your order has been received successfully.
 
 </p>
 
+<div class="order-card">
+
+<h4>
+
+📦 Order Details
+
+</h4>
+
+<hr>
+
 <p>
 
-📅 <strong>Order Date:</strong>
+<b>Order Status :</b>
 
-{% now "d M Y" %}
+<span class="text-success">
 
-</p>
+Confirmed
 
-<p>
-
-💳 <strong>Payment Status:</strong>
-
-Completed Successfully
+</span>
 
 </p>
 
 <p>
 
-🚚 <strong>Estimated Delivery:</strong>
+<b>Delivery :</b>
 
-Within 1–2 Business Days
-
-</p>
-
-<p>
-
-📦 <strong>Order Status:</strong>
-
-Preparing Your Fresh Organic Products
+Within 1 - 2 Business Days
 
 </p>
 
 <p>
 
-☎ <strong>Customer Support:</strong>
+<b>Payment :</b>
 
-+91 7736811032
+Completed / Cash on Delivery
+
+</p>
+
+<p>
+
+<b>Delivery Address :</b>
+
+Your saved delivery address
+
+</p>
+
+<p>
+
+<b>Support :</b>
+
++91 9876543210
 
 </p>
 
 </div>
 
-<div class="buttons">
+<a href="{% url 'order_history' %}"
+class="btn btn-success btn-custom">
 
-<a href="/products/" class="btn btn-success">
+📦 View My Orders
+
+</a>
+
+<a href="{% url 'product_list' %}"
+class="btn btn-outline-success btn-custom">
 
 🛒 Continue Shopping
 
 </a>
 
-<a href="/orders/history/" class="btn btn-outline-success">
+<div class="mt-5">
 
-📜 My Orders
+<h4>
 
-</a>
+⭐ Rate Your Shopping Experience
+
+</h4>
+
+<div class="rating mt-3">
+
+<span>⭐</span>
+
+<span>⭐</span>
+
+<span>⭐</span>
+
+<span>⭐</span>
+
+<span>⭐</span>
 
 </div>
+
+</div>
+
+<footer>
+
+<hr>
+
+🌱 Organic Fresh Market
+
+<br>
+
+Fresh • Healthy • Organic
+
+<br><br>
+
+© 2026 All Rights Reserved
+
+</footer>
 
 </div>
 
