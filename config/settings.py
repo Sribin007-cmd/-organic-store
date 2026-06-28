@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'reviews',
     'core',
     'cart',
+    'ai_assistant',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,4 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+OPENAI_API_KEY = "YOUR_API_KEY"

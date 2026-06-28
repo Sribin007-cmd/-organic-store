@@ -17,6 +17,8 @@ urlpatterns = [
 
     path('orders/', include('orders.urls')),
 
+    path("ai/", include("ai_assistant.urls")),
+
 ]
 
 if settings.DEBUG:
